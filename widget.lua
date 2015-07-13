@@ -18,7 +18,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local pulseaudio = require("apw.pulseaudio")
-
+local lain = require("lain")
 local pulsewidget = { mt = {} }
 p = pulseaudio:Create()
 
@@ -41,7 +41,8 @@ local function _update()
 	text= p.Perc 
 	if pulsewidget.textbox then
 		print(text)
-		pulsewidget.textbox:set_text(''..text..'')
+--        pulsewidget.textbox:set_markup('')
+		pulsewidget.textbox:set_markup('<span font="' .. beautiful.iconFont .. '" color="' .. beautiful.apw_fg_color .. '"></span> <span color="' .. beautiful.apw_fg_color .. '">' .. text .. '</span>')
 	end
 	pulsewidget:setcolor(p.Mute)
 end
