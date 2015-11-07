@@ -24,7 +24,7 @@ p = pulseaudio:Create()
 
 function pulsewidget:setcolor(mute)
 	if pulsewidget.progressbar then
-		if mute then
+		if mute == "yes" then
 			pulsewidget.progressbar:set_color(pulsewidget.color_mute)
 			pulsewidget.progressbar:set_background_color(pulsewidget.color_bg_mute)
 		else
@@ -40,11 +40,14 @@ local function _update()
 	end
 	text= p.Perc 
 	if pulsewidget.textbox then
-		print(text)
+        if p.Mute then
+		    pulsewidget.textbox:set_markup('<span font="' .. beautiful.iconFont .. '" color="' .. beautiful.apw_fg_color.. '"></span> <span color="' .. beautiful.apw_fg_color .. '">' .. 'M' .. '</span>')
+        else
+		--print(text)
 --        pulsewidget.textbox:set_markup('')
-		pulsewidget.textbox:set_markup('<span font="' .. beautiful.iconFont .. '" color="' .. beautiful.apw_fg_color .. '"></span> <span color="' .. beautiful.apw_fg_color .. '">' .. text .. '</span>')
+		    pulsewidget.textbox:set_markup('<span font="' .. beautiful.iconFont .. '" color="' .. beautiful.apw_fg_color .. '"></span> <span color="' .. beautiful.apw_fg_color .. '">' .. text .. '</span>')
+        end
 	end
-	pulsewidget:setcolor(p.Mute)
 end
 
 function pulsewidget.up()
