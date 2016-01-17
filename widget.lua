@@ -41,11 +41,11 @@ local function _update()
 	text= p.Perc 
 	if pulsewidget.textbox then
         if p.Mute then
-		    pulsewidget.textbox:set_markup('<span font="' .. beautiful.iconFont .. '" color="' .. beautiful.apw_fg_color.. '"></span> <span color="' .. beautiful.apw_fg_color .. '">' .. 'M' .. '</span>')
+		    pulsewidget.textbox:set_markup('<span font="' .. beautiful.iconFont .. '" color="' .. beautiful.apw_fg_color.. '"></span> <span color="' .. beautiful.fg_normal .. '">' .. 'M' .. '</span>')
         else
 		--print(text)
 --        pulsewidget.textbox:set_markup('')
-		    pulsewidget.textbox:set_markup('<span font="' .. beautiful.iconFont .. '" color="' .. beautiful.apw_fg_color .. '"></span> <span color="' .. beautiful.apw_fg_color .. '">' .. text .. '</span>')
+		    pulsewidget.textbox:set_markup('<span font="' .. beautiful.iconFont .. '" color="' .. beautiful.apw_fg_color .. '"></span> <span color="' .. beautiful.fg_normal .. '">' .. text .. '</span>')
         end
 	end
 end
